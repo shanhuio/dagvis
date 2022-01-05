@@ -4,6 +4,7 @@ go 1.17
 
 require (
 	shanhu.io/aries v0.0.0-20211227015423-58a74ac39d20
+	shanhu.io/dags v0.0.0-20220105192005-a899ae47f778
 	shanhu.io/misc v0.0.0-20220103042840-3c06419a71a9
 )
 
