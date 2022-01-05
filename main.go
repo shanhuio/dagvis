@@ -26,14 +26,13 @@ import (
 )
 
 type server struct {
-}
-
-func newServer(h *osutil.Home) *server {
-	return new(server)
+	static *aries.StaticFiles
+	tmpls  *aries.Templates
 }
 
 func (s *server) serveIndex(c *aries.C) error {
-	return nil
+	dat := struct{}{}
+	return s.tmpls.Serve(c, "dagview.html", &dat)
 }
 
 func makeService(home string) (aries.Service, error) {
@@ -42,10 +41,19 @@ func makeService(home string) (aries.Service, error) {
 		return nil, errcode.Annotate(err, "make new home")
 	}
 
-	s := newServer(h)
+	s := &server{
+		static: aries.NewStaticFiles(h.Lib("static")),
+		tmpls:  aries.NewTemplates(h.Lib("tmpl"), nil),
+	}
+
+	serveStatic := s.static.Serve
 
 	r := aries.NewRouter()
 	r.Index(s.serveIndex)
+	r.Get("style.css", serveStatic)
+	r.Dir("js", serveStatic)
+	r.Dir("jslib", serveStatic)
+
 	return r, nil
 }
 
