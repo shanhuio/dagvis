@@ -17,21 +17,29 @@
 package dagvis
 
 import (
+	"encoding/json"
 	"flag"
+	"io/ioutil"
 	"log"
 
 	"shanhu.io/aries"
+	"shanhu.io/dags"
 	"shanhu.io/misc/errcode"
 	"shanhu.io/misc/osutil"
 )
 
 type server struct {
+	dag    *dags.M
 	static *aries.StaticFiles
 	tmpls  *aries.Templates
 }
 
 func (s *server) serveIndex(c *aries.C) error {
-	dat := struct{}{}
+	dat := struct {
+		DAG *dags.M
+	}{
+		DAG: s.dag,
+	}
 	return s.tmpls.Serve(c, "dagview.html", &dat)
 }
 
@@ -41,7 +49,17 @@ func makeService(home string) (aries.Service, error) {
 		return nil, errcode.Annotate(err, "make new home")
 	}
 
+	m := new(dags.M)
+	dagBytes, err := ioutil.ReadFile(h.Var("dagview.json"))
+	if err != nil {
+		return nil, errcode.Annotate(err, "read dagview.json")
+	}
+	if err := json.Unmarshal(dagBytes, m); err != nil {
+		return nil, errcode.Annotate(err, "parse dagview.json")
+	}
+
 	s := &server{
+		dag:    m,
 		static: aries.NewStaticFiles(h.Lib("static")),
 		tmpls:  aries.NewTemplates(h.Lib("tmpl"), nil),
 	}

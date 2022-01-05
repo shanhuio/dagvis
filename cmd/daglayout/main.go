@@ -62,7 +62,7 @@ func layout(in, out string, opts *options) error {
 	}
 
 	g := new(dags.Graph)
-	if err := json.Unmarshal(bs, g); err != nil {
+	if err := json.Unmarshal(bs, &g.Nodes); err != nil {
 		return errcode.Annotate(err, "parse graph")
 	}
 
