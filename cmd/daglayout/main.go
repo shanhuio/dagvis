@@ -46,15 +46,6 @@ func writeOutput(out string, bs []byte) error {
 	return ioutil.WriteFile(out, bs, 0644)
 }
 
-func layoutGraph(g *dags.Graph, opts *options) (
-	*dags.Map, *dags.MapView, error,
-) {
-	if opts.reverse {
-		return dags.RevLayout(g)
-	}
-	return dags.Layout(g)
-}
-
 func layout(in, out string, opts *options) error {
 	bs, err := readInput(in)
 	if err != nil {
@@ -62,11 +53,13 @@ func layout(in, out string, opts *options) error {
 	}
 
 	g := new(dags.Graph)
+	g = g.Reverse()
+
 	if err := json.Unmarshal(bs, &g.Nodes); err != nil {
 		return errcode.Annotate(err, "parse graph")
 	}
 
-	_, v, err := layoutGraph(g, opts)
+	_, v, err := dags.Layout(g)
 	if err != nil {
 		return errcode.Annotate(err, "layout graph")
 	}
@@ -85,15 +78,11 @@ func layout(in, out string, opts *options) error {
 }
 
 func main() {
-	reverse := flag.Bool("reverse", false, "if use reverse layout")
 	in := flag.String("in", "", "input file")
 	out := flag.String("out", "", "output file")
 	flag.Parse()
 
-	opts := &options{
-		reverse: *reverse,
-	}
-
+	opts := &options{}
 	if err := layout(*in, *out, opts); err != nil {
 		log.Fatal(err)
 	}
