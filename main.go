@@ -35,11 +35,18 @@ type server struct {
 }
 
 func (s *server) serveIndex(c *aries.C) error {
-	dat := struct {
-		DAG *dags.M
+	pageData := struct {
+		Graph *dags.M
 	}{
-		DAG: s.dag,
+		Graph: s.dag,
 	}
+
+	dat := struct {
+		PageData interface{}
+	}{
+		PageData: &pageData,
+	}
+
 	return s.tmpls.Serve(c, "dagview.html", &dat)
 }
 
