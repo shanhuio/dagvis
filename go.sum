@@ -4,9 +4,9 @@ golang.org/x/sys v0.0.0-20220804214406-8e32c043e418 h1:9vYwv7OjYaky/tlAeD7C4oC9E
 golang.org/x/sys v0.0.0-20220804214406-8e32c043e418/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/term v0.0.0-20220722155259-a9ba230a4035 h1:Q5284mrmYTpACcm+eAKjKJH48BBwSyfJqmmGDTtT8Vc=
 golang.org/x/term v0.0.0-20220722155259-a9ba230a4035/go.mod h1:jbD1KX2456YbFQfuXm/mYQcufACuNUgVhRMnK/tPxf8=
-shanhu.io/aries v0.0.0-20220803070535-4107afa09a3a h1:wJBZwtsZHgz2spWIcW4e8YIsjxywWvQm+1Yo2e3XcVU=
-shanhu.io/aries v0.0.0-20220803070535-4107afa09a3a/go.mod h1:LZUHJtIduBxJ3B7QTgKBkkIbMNBewKXxvyVCM2vmx8A=
+shanhu.io/aries v0.0.0-20220807011428-96a8c10ef344 h1:tlVj05gDbtMWX82cKGG69HAw67MH3x3FYdx+nP2Ybl4=
+shanhu.io/aries v0.0.0-20220807011428-96a8c10ef344/go.mod h1:vEQ3LNd2bvg0dW8L6Nxuhc9qGQVeyzw0eWBn1cPjUKc=
 shanhu.io/dags v0.0.0-20220320061527-bb7abb042c8a h1:NcOLR5x5Iunl2bz74vc0rTDZdltqHfPFvINKs270OMA=
 shanhu.io/dags v0.0.0-20220320061527-bb7abb042c8a/go.mod h1:7Vbod2TNeWhaiyPB9XbMlyH8t4a5UvWsq73TIO5WBww=
-shanhu.io/misc v0.0.0-20220803070526-2da1b044a170 h1:IltQfgEMTVw80Kip/GNnPZybF377fPsH6kFXz0occOM=
-shanhu.io/misc v0.0.0-20220803070526-2da1b044a170/go.mod h1:iL83AM6Q/3H/8r8ijnHvV0849E+r0zDzzpFdAAXG/SE=
+shanhu.io/misc v0.0.0-20220807011422-69592b10fff9 h1:XlgRLGYa5EBgnRjf0a3+syOeOYstT0XUAnFRRNbzIdw=
+shanhu.io/misc v0.0.0-20220807011422-69592b10fff9/go.mod h1:05EME/eCj2YabyE1l4GRmG3uf9n7hgZtJTJCke5zvfo=

@@ -1,11 +1,11 @@
 module shanhu.io/smlrepo/dagvis
 
-go 1.19
+go 1.18
 
 require (
-	shanhu.io/aries v0.0.0-20220803070535-4107afa09a3a
+	shanhu.io/aries v0.0.0-20220807011428-96a8c10ef344
 	shanhu.io/dags v0.0.0-20220320061527-bb7abb042c8a
-	shanhu.io/misc v0.0.0-20220803070526-2da1b044a170
+	shanhu.io/misc v0.0.0-20220807011422-69592b10fff9
 )
 
 require (
