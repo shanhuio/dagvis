@@ -3,9 +3,9 @@ module shanhu.io/smlrepo/dagvis
 go 1.18
 
 require (
-	shanhu.io/aries v0.0.0-20220920041135-6a0d20a8fb87
+	shanhu.io/aries v0.0.0-20220921190824-a035657a0bf1
 	shanhu.io/dags v0.0.0-20220320061527-bb7abb042c8a
-	shanhu.io/misc v0.0.0-20220920041126-2d1f23c390a2
+	shanhu.io/misc v0.0.0-20220921190814-df5eedd86479
 )
 
 require (
