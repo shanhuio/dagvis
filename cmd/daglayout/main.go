@@ -23,8 +23,8 @@ import (
 	"log"
 	"os"
 
-	"shanhu.io/dags"
-	"shanhu.io/misc/errcode"
+	"shanhu.io/pub/dags"
+	"shanhu.io/pub/errcode"
 )
 
 type options struct {
